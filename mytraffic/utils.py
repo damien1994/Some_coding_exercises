@@ -65,7 +65,6 @@ def flat_list_to_hierarchical_tree(filename):
 def get_nodes(data, node):
     d = {'value': node}
     children = get_children(data, node)
-    print(children)
     if children:
         d['children'] = [get_nodes(data, child) for child in children]
     else:
