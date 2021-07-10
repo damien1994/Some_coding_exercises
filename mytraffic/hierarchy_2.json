@@ -1,0 +1,9 @@
+[
+  { "value": "Science", "parent": null },
+  { "value": "Mathematics", "parent": "Science" },
+  { "value": "Writing", "parent": "English" },
+  { "value": "Geometry", "parent": "Mathematics" },
+  { "value": "Physics", "parent": "Mathematics" },
+  { "value": "English", "parent": null }
+]
+

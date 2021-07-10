@@ -1,0 +1,32 @@
+[
+  {
+	"value": "Science",
+	"children": [
+  	{
+    	"value": "Mathematics",
+    	"children": [
+      	{ "value": "Geometry", "children": [] },
+      	{ "value": "Algebra", "children": [] }
+    	]
+  	},
+  	{
+    	"value": "Physics",
+    	"children": []
+  	}
+	]
+  },
+  {
+	"value": "English",
+	"children": [
+  	{
+    	"value": "Writing",
+    	"children": []
+  	},
+  	{
+    	"value": "Comprehension",
+    	"children": []
+  	}
+	]
+  }
+]
+
