@@ -44,14 +44,20 @@ def children_recursive(item: dict, count: int):
             children_recursive(child, count)
 
 
-def flat_list_to_hierarchical_tree(filename):
+def flat_list_to_hierarchical_tree(filename: str):
+    """
+    Function to answer to question 3
+    This function transforms a flat list to an hierarchical tree.
+    The first objective is to transform the flat list to a hierarchy of tags
+    (like the 2nd exercise) and after to apply the children recursive function.
+    This function defines the root nodes and thanks to a recursive function get
+    the children corresponding to the node until the node has no more children.
+    :param filename: A string which defines the path to the input/json file
+    :return: A print which represents an hierarchical tree
+    """
     with open(filename) as f:
         data = json.load(f)
-        values = []
-        parents = []
-        for item in data:
-            values.append(item['value'])
-            parents.append(item['parent'])
+        print(type(data))
 
     # get root nodes
     root_nodes = [item['value'] for item in data if item['parent'] is None]
@@ -62,7 +68,19 @@ def flat_list_to_hierarchical_tree(filename):
         children_recursive(item, 0)
 
 
-def get_nodes(data, node):
+def get_nodes(data: list, node: str) -> dict:
+    """
+    Recursive function
+    Takes in input the flat list and the node corresponding to the level of the
+    tree.
+    We take at the beginning the root of the tree. We apply the get_children function
+    to see if the node has children : if it's true, we apply again the get_nodes function
+    (recursive function) until there are no more children to represent.
+    :param data: The list which represents the flat list loaded
+    :param node: The level of the tree
+    :return: A dict which represent the hierarchy in the tree between parents and
+    children
+    """
     d = {'value': node}
     children = get_children(data, node)
     if children:
@@ -72,5 +90,11 @@ def get_nodes(data, node):
     return d
 
 
-def get_children(input, node):
-    return [item['value'] for item in input if item['parent'] == node]
+def get_children(data: list, node: str) -> list:
+    """
+    This function returns the children corresponding to the parent node (value)
+    :param data: The list which represents the flat list loaded
+    :param node: The node which represents the level of the tree
+    :return: A list which contains the children corresponding
+    """
+    return [item['value'] for item in data if item['parent'] == node]
