@@ -38,7 +38,7 @@ def children_recursive(item: dict, count: int):
     :return: A print
     """
     print('    ' * count, '- {0}'.format(item['value']))
-    if len(item['children']) > 0:
+    if item['children']:
         count += 1
         for child in item['children']:
             children_recursive(child, count)
